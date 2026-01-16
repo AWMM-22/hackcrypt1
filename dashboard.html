@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZSMITH - Dashboard</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/pixelarticons@1.8.1/css/pixelarticons.css" rel="stylesheet">
+    <!-- Using local Minecraft fonts in CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/cyber-engine.css?v=1.6">
+    <link rel="stylesheet" href="styles/ui-engine.css?v=1.6">
+    <link rel="stylesheet" href="styles/app.css?v=1.6">
+    <link rel="stylesheet" href="styles/hero-effects.css?v=1.6">
+    <link rel="stylesheet" href="styles/components.css?v=1.6">
+    <link rel="stylesheet" href="styles/pixel-icons.css?v=1.6">
+    <link rel="stylesheet" href="styles/gamification.css?v=1.6">
+    <link rel="stylesheet" href="styles/mobile.css?v=1.6">
+    <link rel="stylesheet" href="styles/ide-cozy.css?v=1.6">
+
+    <!-- True Pixel Fonts from Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Anime.js for Creative Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+
+
+
+    <!-- Auth Check Removed to allow unauthenticated access -->
+    <script>
+        // Auth check removed for conditional rendering
+    </script>
+</head>
+
+<body style="background: url('assets/pixel_art/background.png') no-repeat center center fixed; background-size: cover;">
+    <div id="app">
+
+        <!-- Top Navigation -->
+        <nav id="topnav" class="topnav">
+            <div class="nav-left">
+                <button class="nav-burger" id="mobile-menu-btn"
+                    style="display: none; background: none; border: none; color: white; margin-right: 12px; cursor: pointer;">
+                    <i data-lucide="menu"></i>
+                </button>
+                <a href="#" class="nav-brand" data-route="home" onclick="navigateTo('home')">
+                    <span class="brand-icon cyber-glow"><i data-lucide="zap"
+                            style="width:24px;height:24px;color:#4600c9;"></i></span>
+                    <span class="brand-text">QUIZSMITH</span>
+                </a>
+                <div class="nav-menu">
+                    <div class="nav-item has-dropdown">
+                        <button class="nav-btn" id="learn-btn">Protocols
+                            ▾</button>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <!-- Column 1: Data Science -->
+                                <div class="mega-column">
+                                    <h4>DATA SCIENCE</h4>
+                                    <a href="#" class="mega-link" onclick="navigateTo('course-python')">
+                                        <i data-lucide="file-code" style="width:16px; color: #4ade80;"></i> Python
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="bar-chart-2" style="width:16px; color: #facc15;"></i>
+                                        Intermediate Python
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="grid" style="width:16px; color: #60a5fa;"></i> NumPy
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="database" style="width:16px; color: #c084fc;"></i> SQL
+                                    </a>
+                                    <a href="#" class="mega-link featured">
+                                        <i data-lucide="brain" style="width:16px; color: #fb7185;"></i> Machine Learning
+                                    </a>
+                                </div>
+
+                                <!-- Column 2: Web Development -->
+                                <div class="mega-column">
+                                    <h4>WEB DEVELOPMENT</h4>
+                                    <a href="#" class="mega-link" onclick="navigateTo('course-html')">
+                                        <i data-lucide="layout" style="width:16px; color: #f97316;"></i> HTML
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="paintbrush" style="width:16px; color: #2dd4bf;"></i> CSS
+                                    </a>
+                                    <a href="#" class="mega-link" onclick="navigateTo('course-js')">
+                                        <i data-lucide="code-2" style="width:16px; color: #ebd023;"></i> JavaScript
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="zap" style="width:16px; color: #06b6d4;"></i> React
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="server" style="width:16px; color: #84cc16;"></i> Node.js
+                                    </a>
+                                </div>
+
+                                <!-- Column 3: Tech Arsenal -->
+                                <div class="mega-column">
+                                    <h4>TECH ARSENAL</h4>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="terminal-square" style="width:16px; color: #a3a3a3;"></i>
+                                        Command Line
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="git-branch" style="width:16px; color: #f43f5e;"></i> Git &
+                                        GitHub
+                                    </a>
+                                    <a href="#" class="mega-link featured">
+                                        <i data-lucide="bot" style="width:16px; color: #38bdf8;"></i> GitHub Copilot
+                                    </a>
+                                </div>
+
+                                <!-- Column 4: Computer Science -->
+                                <div class="mega-column">
+                                    <h4>COMPUTER SCIENCE</h4>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="cpu" style="width:16px; color: #6366f1;"></i> C++
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="coffee" style="width:16px; color: #ea580c;"></i> Java
+                                    </a>
+                                    <a href="#" class="mega-link">
+                                        <i data-lucide="gamepad-2" style="width:16px; color: #d946ef;"></i> Game Dev
+                                    </a>
+                                    <a href="#" class="mega-link" onclick="navigateTo('courses')"
+                                        style="margin-top: 16px; color: var(--neon-cyan); font-weight: 700; font-size: 13px;">VIEW
+                                        ALL COURSES →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="nav-btn" data-route="practice" onclick="navigateTo('practice')">Forge</button>
+                    <button class="nav-btn" data-route="builds" onclick="navigateTo('builds')">Fabricate</button>
+                    <button class="nav-btn" data-route="community" onclick="navigateTo('community')">Nexus</button>
+                    <button class="nav-btn" data-route="profile" onclick="navigateTo('profile')">Profile</button>
+                </div>
+            </div>
+            <div class="nav-right">
+                <button class="nav-icon" title="Search"><i data-lucide="search"
+                        style="width:20px;height:20px;"></i></button>
+                <button class="nav-icon notification-badge" title="Notifications"><i data-lucide="bell"
+                        style="width:20px;height:20px;"></i></button>
+                <div class="nav-avatar" id="nav-avatar" title="Profile">
+                    <i data-lucide="user" style="width:20px;height:20px;"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div id="main-layout" class="main-layout" style="opacity: 0; transition: opacity 0.3s ease;">
+
+            <!-- CONTENT AREA -->
+            <div id="main-content" style="min-height: 80vh;">
+                <!-- DYNAMIC CONTENT LOADED HERE -->
+            </div>
+
+            <!-- RIGHT SIDEBAR (Desktop Only) -->
+            <aside class="right-sidebar" style="opacity: 0; transition: opacity 0.3s ease 0.2s;">
+                <!-- User Stats Card -->
+                <div class="cyber-card profile-mini">
+                    <div class="profile-header">
+                        <div class="avatar-circle">
+                            <i data-lucide="user"></i>
+                        </div>
+                        <div class="profile-text">
+                            <h3 id="stat-name">Agent</h3>
+                            <div class="profile-level">
+                                <span class="level-badge">LVL 1</span>
+                                <span class="xp-text"><span id="stat-xp">0</span> XP</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <i data-lucide="flame" class="stat-icon-sm" style="color: var(--neon-orange);"></i>
+                            <span class="stat-val" id="stat-streak">0</span>
+                            <span class="stat-label">STREAK</span>
+                        </div>
+                        <div class="stat-item">
+                            <i data-lucide="award" class="stat-icon-sm" style="color: var(--neon-cyan);"></i>
+                            <span class="stat-val">0</span>
+                            <span class="stat-label">BADGES</span>
+                        </div>
+                        <div class="stat-item">
+                            <i data-lucide="code" class="stat-icon-sm" style="color: var(--neon-purple);"></i>
+                            <span class="stat-val">0</span>
+                            <span class="stat-label">PROJECTS</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-cyber-outline" style="width: 100%; margin-top: 16px;"
+                        onclick="navigateTo('profile')">VIEW PROFILE</button>
+                </div>
+                <!-- Events Card -->
+                <div class="cyber-card">
+                    <div class="card-title"><i data-lucide="calendar" style="margin-right: 8px;"></i> Upcoming Events
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span class="month">DEC</span>
+                            <span class="day">22</span>
+                        </div>
+                        <div class="event-info">
+                            <h4>Game Jam 2025</h4>
+                            <span>10:00 AM EST</span>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <div class="event-date">
+                            <span class="month">JAN</span>
+                            <span class="day">05</span>
+                        </div>
+                        <div class="event-info">
+                            <h4>Python Workshop</h4>
+                            <span>2:00 PM EST</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer / Credits -->
+                <div
+                    style="margin-top: 24px; text-align: center; color: var(--text-muted); font-size: 12px; font-family: var(--font-code);">
+                    <p>QUIZSMITH v0.9.5 (Alpha)</p>
+                    <p style="margin-top: 4px;">© 2025 QUIZSMITH Inc.</p>
+                </div>
+
+            </aside>
+        </div>
+
+        <!-- FULL PAGE VIEWS (Hidden by default) -->
+        <div id="courses-view" class="hidden"
+            style="position: fixed; inset: 0; z-index: 1000; background: #0a0a0f; overflow-y: auto; padding-top: 80px;">
+            <!-- Video Background for Course Catalog -->
+            <video id="courses-video-bg" src="assets/pixel_art/loop.mp4" autoplay muted loop playsinline
+                style="position: fixed; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.5;">
+                <source src="assets/pixel_art/loop.mp4" type="video/mp4">
+            </video>
+            <div id="all-courses-grid" class="container"
+                style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;"></div>
+        </div>
+
+        <div id="course-view" class="hidden" style="padding-top: 80px;">
+            <div id="course-content" class="container" style="max-width: 1000px; margin: 0 auto;"></div>
+        </div>
+
+        <!-- Ko-fi Button Bottom Right -->
+
+        <style>
+            .floating-chat-kofi-popup-iframe {
+                bottom: 20px !important;
+                right: 20px !important;
+            }
+        </style>
+
+
+
+        <div id="lesson-view" class="view hidden">
+            <div class="workspace-layout">
+                <div class="workspace-left" id="lesson-instructions"></div>
+                <div class="workspace-right">
+                    <div class="editor-panel" id="code-editor"></div>
+                    <div class="terminal-panel" id="terminal"></div>
+                </div>
+            </div>
+            <div class="lesson-nav" id="lesson-nav"></div>
+        </div>
+
+        <div id="community-view" class="view hidden">
+            <div class="community-layout">
+                <div class="community-channels" id="channels-list"></div>
+                <div class="community-feed" id="posts-feed"></div>
+                <div class="community-aside" id="community-sidebar"></div>
+            </div>
+        </div>
+
+        <div id="profile-view" class="view hidden" style="padding-top: 100px;">
+            <div id="profile-content" class="container" style="max-width: 1000px; margin: 0 auto; padding: 20px;">
+                <!-- Profile content rendered by JS -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Marked.js for Markdown Rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Supabase JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Scripts -->
+    <script src="scripts/effects/matrix-rain.js?v=1.1"></script>
+    <script src="scripts/effects/tilt-effect.js?v=1.1"></script>
+    <script src="scripts/effects/rain-effect.js?v=1.1"></script>
+    <script src="scripts/supabase-client.js?v=1.1"></script>
+    <script src="scripts/effects/reveal-text.js?v=1.1"></script>
+    <script src="scripts/modules/ui-utils.js?v=1.1"></script>
+    <script src="scripts/modules/auth.js?v=1.1"></script>
+    <script src="scripts/modules/components.js?v=1.1"></script>
+    <script src="scripts/core/nav.js?v=1.1"></script>
+
+    <!-- Data Modules -->
+    <script src="scripts/data/courses-data.js?v=1.1"></script>
+    <script src="scripts/data/syntax-db.js?v=1.1"></script>
+    <script src="scripts/data/curriculum-data.js?v=1.1"></script>
+    <script src="scripts/data/curriculum/python.js?v=1.1"></script>
+    <script src="scripts/data/curriculum/web.js?v=1.1"></script>
+    <script src="scripts/data/curriculum/systems.js?v=1.1"></script>
+    <script src="scripts/data/curriculum/misc.js?v=1.1"></script>
+
+    <!-- Compiler must load BEFORE learning-engine -->
+    <script src="scripts/modules/compiler.js?v=1.1"></script>
+    <script src="scripts/modules/learning-engine.js?v=1.1"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="scripts/modules/catalog.js?v=1.1"></script>
+    <script src="scripts/modules/challenges.js?v=1.1"></script>
+    <script src="scripts/modules/cyber-buttons.js?v=1.1"></script>
+
+    <!-- Main App Logic -->
+    <script src="scripts/cyber-app.js?v=1.6"></script>
+
+
+    <!-- Initialize Lucide Icons on page load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
+
+    <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+    <script>
+        kofiWidgetOverlay.draw('Support QUIZSMITH', {
+            'type': 'floating-chat',
+            'floating-chat.donateButton.text': 'Support',
+            'floating-chat.donateButton.background-color': '#00b9fe',
+            'floating-chat.donateButton.text-color': '#fff'
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="goblinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8BC34A"/>
+      <stop offset="100%" style="stop-color:#558B2F"/>
+    </linearGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="128" cy="180" rx="60" ry="50" fill="#8B4513"/>
+  <!-- Head -->
+  <ellipse cx="128" cy="100" rx="55" ry="50" fill="url(#goblinGrad)"/>
+  <!-- Ears -->
+  <polygon points="65,90 40,50 75,80" fill="#8BC34A"/>
+  <polygon points="191,90 216,50 181,80" fill="#8BC34A"/>
+  <!-- Eyes -->
+  <ellipse cx="105" cy="95" rx="15" ry="18" fill="white"/>
+  <ellipse cx="151" cy="95" rx="15" ry="18" fill="white"/>
+  <circle cx="108" cy="98" r="8" fill="#f44336"/>
+  <circle cx="154" cy="98" r="8" fill="#f44336"/>
+  <circle cx="110" cy="96" r="3" fill="white"/>
+  <circle cx="156" cy="96" r="3" fill="white"/>
+  <!-- Nose -->
+  <ellipse cx="128" cy="115" rx="8" ry="6" fill="#689F38"/>
+  <!-- Mouth with fangs -->
+  <path d="M 100 135 Q 128 155 156 135" stroke="#2E1F05" stroke-width="3" fill="none"/>
+  <polygon points="108,135 115,150 122,135" fill="white"/>
+  <polygon points="134,135 141,150 148,135" fill="white"/>
+  <!-- Armor -->
+  <rect x="85" y="155" width="86" height="60" rx="8" fill="#795548"/>
+  <rect x="95" y="165" width="66" height="40" rx="4" fill="#5D4037"/>
+  <!-- Club/Mace -->
+  <rect x="190" y="100" width="15" height="80" rx="4" fill="#8B4513"/>
+  <circle cx="197" cy="90" r="25" fill="#757575"/>
+  <circle cx="185" cy="75" r="8" fill="#9E9E9E"/>
+  <circle cx="209" cy="75" r="8" fill="#9E9E9E"/>
+  <circle cx="197" cy="65" r="8" fill="#9E9E9E"/>
+</svg>

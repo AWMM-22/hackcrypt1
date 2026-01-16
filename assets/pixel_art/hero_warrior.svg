@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFCC99"/>
+      <stop offset="100%" style="stop-color:#E6A876"/>
+    </linearGradient>
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#5D4037"/>
+      <stop offset="100%" style="stop-color:#3E2723"/>
+    </linearGradient>
+  </defs>
+  <!-- Hair/Head -->
+  <ellipse cx="128" cy="80" rx="45" ry="45" fill="url(#hairGrad)"/>
+  <path d="M 83 70 Q 70 40 90 30 Q 128 20 166 30 Q 186 40 173 70" fill="url(#hairGrad)"/>
+  <!-- Face -->
+  <ellipse cx="128" cy="90" rx="35" ry="35" fill="url(#skinGrad)"/>
+  <!-- Beard -->
+  <ellipse cx="128" cy="115" rx="30" ry="25" fill="url(#hairGrad)"/>
+  <!-- Eyes -->
+  <ellipse cx="115" cy="85" rx="8" ry="6" fill="white"/>
+  <ellipse cx="141" cy="85" rx="8" ry="6" fill="white"/>
+  <circle cx="115" cy="86" r="4" fill="#3E2723"/>
+  <circle cx="141" cy="86" r="4" fill="#3E2723"/>
+  <!-- Eyebrows -->
+  <rect x="105" y="75" width="18" height="4" rx="2" fill="#3E2723"/>
+  <rect x="133" y="75" width="18" height="4" rx="2" fill="#3E2723"/>
+  <!-- Body Armor -->
+  <rect x="90" y="135" width="76" height="80" rx="8" fill="#546E7A"/>
+  <rect x="100" y="145" width="56" height="60" rx="4" fill="#37474F"/>
+  <!-- Shoulder Armor -->
+  <ellipse cx="85" cy="150" rx="18" ry="15" fill="#78909C"/>
+  <ellipse cx="171" cy="150" rx="18" ry="15" fill="#78909C"/>
+  <!-- Belt -->
+  <rect x="95" y="185" width="66" height="12" rx="2" fill="#5D4037"/>
+  <rect x="118" y="183" width="20" height="16" rx="2" fill="#FFD700"/>
+  <!-- Sword -->
+  <rect x="175" y="100" width="8" height="100" rx="2" fill="#9E9E9E"/>
+  <rect x="175" y="80" width="8" height="25" rx="2" fill="#BDBDBD"/>
+  <rect x="168" y="100" width="22" height="8" rx="2" fill="#FFD700"/>
+  <rect x="173" y="105" width="12" height="15" rx="2" fill="#8D6E63"/>
+  <!-- Arm -->
+  <rect x="165" y="140" width="20" height="50" rx="6" fill="url(#skinGrad)"/>
+  <!-- Red accents -->
+  <rect x="85" y="160" width="10" height="40" rx="2" fill="#C62828"/>
+  <rect x="161" y="160" width="10" height="40" rx="2" fill="#C62828"/>
+</svg>

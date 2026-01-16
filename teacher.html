@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZSMITH - Teacher Portal</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/pixelarticons@1.8.1/css/pixelarticons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="teacher.css?v=1.1">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+</head>
+
+<body class="teacher-portal">
+    <div id="app">
+
+        <!-- Top Navigation -->
+        <nav id="topnav" class="topnav minecraft-nav">
+            <div class="nav-left">
+                <div class="nav-brand">
+                    <span class="mc-icon">⛏</span>
+                    <span class="brand-text">QUIZCRAFT</span>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="mc-xp-bar">
+                    <div class="xp-bar-bg">
+                        <div class="xp-bar-fill" style="width: 65%;"></div>
+                    </div>
+                    <span class="xp-level">Level 12</span>
+                </div>
+                <div class="mc-hearts">
+                    <span>❤️</span><span>❤️</span><span>❤️</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Layout -->
+        <div id="main-layout" class="main-layout teacher-layout">
+
+            <!-- Teacher Sidebar -->
+            <aside class="teacher-sidebar">
+                
+                <nav class="sidebar-nav">
+                    <button class="sidebar-btn active" data-view="upload">
+                        <div class="btn-icon">
+                            <i data-lucide="upload"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-label">Create Quiz</span>
+                            <span class="btn-desc">Upload & generate</span>
+                        </div>
+                    </button>
+                    
+                    <button class="sidebar-btn" data-view="quizzes">
+                        <div class="btn-icon">
+                            <i data-lucide="layers"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-label">My Quizzes</span>
+                            <span class="btn-desc">Manage & review</span>
+                        </div>
+                    </button>
+                    
+                    <button class="sidebar-btn" data-view="analytics">
+                        <div class="btn-icon">
+                            <i data-lucide="bar-chart-3"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-label">Analytics</span>
+                            <span class="btn-desc">Performance stats</span>
+                        </div>
+                    </button>
+                    
+                    <button class="sidebar-btn" data-view="students">
+                        <div class="btn-icon">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-label">Students</span>
+                            <span class="btn-desc">View roster</span>
+                        </div>
+                    </button>
+                    
+                    <button class="sidebar-btn" data-view="achievements">
+                        <div class="btn-icon">
+                            <i data-lucide="award"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-label">Achievements</span>
+                            <span class="btn-desc">Track progress</span>
+                        </div>
+                    </button>
+                    
+                    <button class="sidebar-btn" data-view="settings">
+                        <div class="btn-icon">
+                            <i data-lucide="settings"></i>
+                        </div>
+                        <div class="btn-content">
+                            <span class="btn-label">Settings</span>
+                            <span class="btn-desc">Preferences</span>
+                        </div>
+                    </button>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i data-lucide="file-text"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="total-quizzes">0</div>
+                                <div class="stat-label">Quizzes</div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i data-lucide="users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <div class="stat-value" id="total-students">0</div>
+                                <div class="stat-label">Students</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-mini">
+                            <span class="stat-mini-label">⭐ XP Earned</span>
+                            <span class="stat-mini-value">2,450</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- CONTENT AREA -->
+            <div id="teacher-content" class="teacher-content">
+                
+                <!-- Upload Document View -->
+                <div id="view-upload" class="teacher-view active">
+                    <div class="content-header">
+                        <h1 class="page-title mc-title-large">
+                            <span class="mc-icon-large">✨</span>
+                            Craft New Quiz
+                        </h1>
+                        <p class="page-subtitle">Upload a document and let AI craft a quiz for your students</p>
+                    </div>
+
+                    <div class="upload-container">
+                        <!-- Upload Zone -->
+                        <div class="upload-zone" id="upload-zone">
+                            <div class="upload-icon">
+                                <i data-lucide="cloud-upload" style="width: 64px; height: 64px;"></i>
+                            </div>
+                            <h3 class="upload-title">Drop your document here</h3>
+                            <p class="upload-subtitle">or click to browse</p>
+                            <div class="upload-formats">
+                                <span class="format-tag">PDF</span>
+                                <span class="format-tag">TXT</span>
+                                <span class="format-tag">DOCX</span>
+                                <span class="format-tag">DOC</span>
+                            </div>
+                            <input type="file" id="file-input" accept=".pdf,.txt,.doc,.docx" hidden>
+                        </div>
+
+                        <!-- File Preview (Hidden Initially) -->
+                        <div class="file-preview" id="file-preview" style="display: none;">
+                            <div class="file-info">
+                                <div class="file-icon">
+                                    <i data-lucide="file-text"></i>
+                                </div>
+                                <div class="file-details">
+                                    <h4 class="file-name" id="file-name">document.pdf</h4>
+                                    <p class="file-size" id="file-size">2.5 MB</p>
+                                </div>
+                                <button class="btn-remove" id="remove-file">
+                                    <i data-lucide="x"></i>
+                                </button>
+                            </div>
+
+                            <!-- Quiz Configuration -->
+                            <div class="quiz-config">
+                                <h3 class="config-title">Quiz Configuration</h3>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Quiz Title</label>
+                                    <input type="text" class="form-input" id="quiz-title" placeholder="e.g., Python Basics Quiz" required>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label class="form-label">Number of Questions</label>
+                                        <select class="form-select" id="num-questions">
+                                            <option value="5">5 Questions</option>
+                                            <option value="10" selected>10 Questions</option>
+                                            <option value="15">15 Questions</option>
+                                            <option value="20">20 Questions</option>
+                                            <option value="25">25 Questions</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">Difficulty Level</label>
+                                        <select class="form-select" id="difficulty">
+                                            <option value="easy">Easy</option>
+                                            <option value="medium" selected>Medium</option>
+                                            <option value="hard">Hard</option>
+                                            <option value="mixed">Mixed</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Quiz Type</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="mcq" checked>
+                                            <span>Multiple Choice</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="true-false">
+                                            <span>True/False</span>
+                                        </label>
+                                        <label class="checkbox-label">
+                                            <input type="checkbox" id="short-answer">
+                                            <span>Short Answer</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button class="btn-generate" id="generate-quiz">
+                                    <i data-lucide="sparkles"></i>
+                                    Generate Quiz
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div class="loading-state" id="loading-state" style="display: none;">
+                            <div class="loading-spinner"></div>
+                            <h3 class="loading-title">Generating your quiz...</h3>
+                            <p class="loading-subtitle">AI is analyzing your document and creating questions</p>
+                        </div>
+
+                        <!-- Success State -->
+                        <div class="success-state" id="success-state" style="display: none;">
+                            <div class="success-icon">
+                                <i data-lucide="check-circle" style="width: 64px; height: 64px; color: var(--codedex-green);"></i>
+                            </div>
+                            <h3 class="success-title">Quiz Generated Successfully!</h3>
+                            <p class="success-subtitle">Your quiz has been created and is ready to share</p>
+                            <div class="success-actions">
+                                <button class="btn-view-quiz">View Quiz</button>
+                                <button class="btn-share-quiz">Share with Students</button>
+                                <button class="btn-create-another" id="create-another">Create Another</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Quizzes View -->
+                <div id="view-quizzes" class="teacher-view">
+                    <div class="content-header">
+                        <h1 class="page-title">
+                            <i data-lucide="list-checks" style="color: var(--codedex-cyan);"></i>
+                            My Quizzes
+                        </h1>
+                        <p class="page-subtitle">Manage and monitor all your created quizzes</p>
+                    </div>
+
+                    <div class="quizzes-grid" id="quizzes-grid">
+                        <!-- Quiz cards will be dynamically inserted here -->
+                        <div class="empty-state">
+                            <i data-lucide="file-question" style="width: 48px; height: 48px; color: var(--text-muted);"></i>
+                            <p>No quizzes created yet</p>
+                            <button class="btn-cyber-primary" onclick="switchView('upload')">Create Your First Quiz</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics View -->
+                <div id="view-analytics" class="teacher-view">
+                    <div class="content-header">
+                        <h1 class="page-title">
+                            <i data-lucide="bar-chart-2" style="color: var(--codedex-gold);"></i>
+                            Analytics Dashboard
+                        </h1>
+                        <p class="page-subtitle">Track student performance and quiz statistics</p>
+                    </div>
+
+                    <div class="analytics-grid">
+                        <div class="stat-card">
+                            <div class="stat-card-icon" style="background: rgba(34, 211, 238, 0.1);">
+                                <i data-lucide="users" style="color: var(--codedex-cyan);"></i>
+                            </div>
+                            <div class="stat-card-content">
+                                <h3 class="stat-card-value">0</h3>
+                                <p class="stat-card-label">Total Students</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-icon" style="background: rgba(74, 222, 128, 0.1);">
+                                <i data-lucide="check-circle" style="color: var(--codedex-green);"></i>
+                            </div>
+                            <div class="stat-card-content">
+                                <h3 class="stat-card-value">0%</h3>
+                                <p class="stat-card-label">Average Score</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-icon" style="background: rgba(251, 191, 36, 0.1);">
+                                <i data-lucide="list-checks" style="color: var(--codedex-gold);"></i>
+                            </div>
+                            <div class="stat-card-content">
+                                <h3 class="stat-card-value">0</h3>
+                                <p class="stat-card-label">Quizzes Completed</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-card-icon" style="background: rgba(168, 85, 247, 0.1);">
+                                <i data-lucide="trending-up" style="color: var(--codedex-purple);"></i>
+                            </div>
+                            <div class="stat-card-content">
+                                <h3 class="stat-card-value">0%</h3>
+                                <p class="stat-card-label">Completion Rate</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="empty-state" style="margin-top: 40px;">
+                        <i data-lucide="bar-chart" style="width: 48px; height: 48px; color: var(--text-muted);"></i>
+                        <p>No analytics data yet</p>
+                        <p class="text-muted">Create quizzes and share them with students to see analytics</p>
+                    </div>
+                </div>
+
+                <!-- Students View -->
+                <div id="view-students" class="teacher-view">
+                    <div class="content-header">
+                        <h1 class="page-title mc-title-large">
+                            <span class="mc-icon-large">👥</span>
+                            Class Roster
+                        </h1>
+                        <p class="page-subtitle">Manage your student adventurers</p>
+                    </div>
+
+                    <div class="students-list" id="students-list">
+                        <div class="empty-state">
+                            <div class="mc-icon-huge">👨‍🎓</div>
+                            <p>No students in your world yet</p>
+                            <p class="text-muted">Share quiz links to invite students to join</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements View -->
+                <div id="view-achievements" class="teacher-view">
+                    <div class="content-header">
+                        <h1 class="page-title mc-title-large">
+                            <span class="mc-icon-large">🏆</span>
+                            Achievements Unlocked
+                        </h1>
+                        <p class="page-subtitle">Your teaching milestones and rewards</p>
+                    </div>
+
+                    <div class="achievements-grid">
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">📝</div>
+                            <div class="achievement-info">
+                                <h3 class="achievement-title">First Quiz</h3>
+                                <p class="achievement-desc">Create your first quiz</p>
+                            </div>
+                            <div class="achievement-progress">0/1</div>
+                        </div>
+                        
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">📚</div>
+                            <div class="achievement-info">
+                                <h3 class="achievement-title">Quiz Master</h3>
+                                <p class="achievement-desc">Create 10 quizzes</p>
+                            </div>
+                            <div class="achievement-progress">0/10</div>
+                        </div>
+                        
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">👥</div>
+                            <div class="achievement-info">
+                                <h3 class="achievement-title">Popular Teacher</h3>
+                                <p class="achievement-desc">Have 50 students</p>
+                            </div>
+                            <div class="achievement-progress">0/50</div>
+                        </div>
+                        
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">⭐</div>
+                            <div class="achievement-info">
+                                <h3 class="achievement-title">Legendary Educator</h3>
+                                <p class="achievement-desc">Reach Level 50</p>
+                            </div>
+                            <div class="achievement-progress">12/50</div>
+                        </div>
+                        
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">🎯</div>
+                            <div class="achievement-info">
+                                <h3 class="achievement-title">Perfect Score</h3>
+                                <p class="achievement-desc">Student gets 100%</p>
+                            </div>
+                            <div class="achievement-progress">0/1</div>
+                        </div>
+                        
+                        <div class="achievement-card locked">
+                            <div class="achievement-icon">💎</div>
+                            <div class="achievement-info">
+                                <h3 class="achievement-title">Diamond Teacher</h3>
+                                <p class="achievement-desc">1000 quizzes completed</p>
+                            </div>
+                            <div class="achievement-progress">0/1000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings View -->
+                <div id="view-settings" class="teacher-view">
+                    <div class="content-header">
+                        <h1 class="page-title mc-title-large">
+                            <span class="mc-icon-large">⚙️</span>
+                            World Settings
+                        </h1>
+                        <p class="page-subtitle">Configure your teaching environment</p>
+                    </div>
+
+                    <div class="settings-container">
+                        <div class="settings-section">
+                            <h2 class="settings-title">🎨 Appearance</h2>
+                            <div class="setting-item">
+                                <label class="setting-label">Theme</label>
+                                <select class="form-select">
+                                    <option value="minecraft">Minecraft (Current)</option>
+                                    <option value="cyber">Cyber</option>
+                                    <option value="retro">Retro</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Font Size</label>
+                                <select class="form-select">
+                                    <option value="small">Small</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h2 class="settings-title">🎓 Quiz Defaults</h2>
+                            <div class="setting-item">
+                                <label class="setting-label">Default Quiz Length</label>
+                                <select class="form-select">
+                                    <option value="5">5 Questions</option>
+                                    <option value="10" selected>10 Questions</option>
+                                    <option value="15">15 Questions</option>
+                                    <option value="20">20 Questions</option>
+                                </select>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">Default Difficulty</label>
+                                <select class="form-select">
+                                    <option value="easy">Easy</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h2 class="settings-title">🔔 Notifications</h2>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>Student completes quiz</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span>New student joins</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    <span>Daily summary email</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-actions">
+                            <button class="btn-generate">💾 Save Settings</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Teacher Module -->
+    <script src="teacher.js"></script>
+</body>
+
+</html>

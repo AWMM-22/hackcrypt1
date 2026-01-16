@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZSMITH - Login</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/pixelarticons@1.8.1/css/pixelarticons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/cyber-engine.css?v=1.6">
+    <link rel="stylesheet" href="styles/hero-effects.css?v=1.9">
+    <link rel="stylesheet" href="styles/components.css?v=1.6">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: url('assets/pixel_art/background.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Outfit', sans-serif;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 480px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .auth-card {
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(34, 211, 238, 0.1);
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .auth-logo {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 28px;
+            color: #ffc800;
+            text-shadow: 0 0 30px rgba(255, 200, 0, 0.5);
+            margin-bottom: 8px;
+        }
+
+        .auth-subtitle {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .auth-title {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 16px;
+            color: #22d3ee;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        /* Role Selection */
+        .role-selection {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .role-btn {
+            flex: 1;
+            padding: 24px 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(71, 85, 105, 0.5);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .role-btn:hover {
+            border-color: #22d3ee;
+            background: rgba(34, 211, 238, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .role-btn.active {
+            border-color: #ffc800;
+            background: rgba(255, 200, 0, 0.15);
+            box-shadow: 0 0 30px rgba(255, 200, 0, 0.2);
+        }
+
+        .role-btn.student.active {
+            border-color: #4ade80;
+            background: rgba(74, 222, 128, 0.15);
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.2);
+        }
+
+        .role-btn.teacher.active {
+            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.15);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+        }
+
+        .role-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+        }
+
+        .role-label {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            color: #e2e8f0;
+        }
+
+        /* Form Styles */
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+            animation: fadeInUp 0.4s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 2px solid rgba(71, 85, 105, 0.5);
+            border-radius: 12px;
+            color: #e2e8f0;
+            font-size: 16px;
+            font-family: 'Outfit', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #22d3ee;
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: #64748b;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #ffc800, #ff9500);
+            border: none;
+            border-radius: 12px;
+            color: #000;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 200, 0, 0.4);
+        }
+
+        .submit-btn.student-btn {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+        }
+
+        .submit-btn.student-btn:hover {
+            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.4);
+        }
+
+        .submit-btn.teacher-btn {
+            background: linear-gradient(135deg, #a855f7, #9333ea);
+            color: #fff;
+        }
+
+        .submit-btn.teacher-btn:hover {
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Toggle Links */
+        .auth-toggle {
+            text-align: center;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(71, 85, 105, 0.3);
+        }
+
+        .auth-toggle span {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .auth-toggle a {
+            color: #22d3ee;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .auth-toggle a:hover {
+            color: #ffc800;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: #22d3ee;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Error message */
+        .error-msg {
+            color: #ef4444;
+            font-size: 12px;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-msg.show {
+            display: block;
+        }
+
+        /* Success message */
+        .success-msg {
+            background: rgba(74, 222, 128, 0.2);
+            border: 1px solid #4ade80;
+            color: #4ade80;
+            padding: 12px 16px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 16px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .success-msg.show {
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <a href="index.html" class="back-btn">
+            <i data-lucide="arrow-left" style="width: 18px; height: 18px;"></i>
+            Back to Home
+        </a>
+
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-logo">QUIZSMITH</div>
+                <p class="auth-subtitle">Level up your coding skills</p>
+            </div>
+
+            <!-- Step 1: Role Selection -->
+            <div id="step-role" class="auth-step">
+                <h2 class="auth-title">SELECT YOUR ROLE</h2>
+                <div class="role-selection">
+                    <div class="role-btn student" onclick="selectRole('student')">
+                        <div class="role-icon">🎓</div>
+                        <div class="role-label">STUDENT</div>
+                    </div>
+                    <div class="role-btn teacher" onclick="selectRole('teacher')">
+                        <div class="role-icon">👨‍🏫</div>
+                        <div class="role-label">TEACHER</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Login Form -->
+            <div id="step-login" class="auth-step hidden">
+                <h2 class="auth-title" id="login-title">LOGIN</h2>
+                <div id="login-success" class="success-msg"></div>
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label class="form-label">USERNAME</label>
+                        <input type="text" class="form-input" id="login-username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">PASSWORD</label>
+                        <input type="password" class="form-input" id="login-password" placeholder="Enter your password" required>
+                        <div class="error-msg" id="login-error">Invalid username or password</div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="login-submit-btn">LOGIN</button>
+                </form>
+                <button class="back-btn" style="margin-top: 16px; margin-bottom: 0;" onclick="goBackToRole()">
+                    <i data-lucide="arrow-left" style="width: 16px; height: 16px;"></i>
+                    Change Role
+                </button>
+            </div>
+
+            <div class="auth-toggle">
+                <span>Don't have an account? </span>
+                <a href="signup.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
+
+        let selectedRole = null;
+
+        function selectRole(role) {
+            selectedRole = role;
+            
+            // Update active state
+            document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.role-btn.${role}`).classList.add('active');
+            
+            // Show login form after short delay
+            setTimeout(() => {
+                document.getElementById('step-role').classList.add('hidden');
+                document.getElementById('step-login').classList.remove('hidden');
+                
+                // Update title and button based on role
+                const title = document.getElementById('login-title');
+                const submitBtn = document.getElementById('login-submit-btn');
+                
+                if (role === 'student') {
+                    title.textContent = 'STUDENT LOGIN';
+                    title.style.color = '#4ade80';
+                    submitBtn.className = 'submit-btn student-btn';
+                } else {
+                    title.textContent = 'TEACHER LOGIN';
+                    title.style.color = '#a855f7';
+                    submitBtn.className = 'submit-btn teacher-btn';
+                }
+                
+                // Re-init icons
+                if (window.lucide) window.lucide.createIcons();
+            }, 300);
+        }
+
+        function goBackToRole() {
+            document.getElementById('step-login').classList.add('hidden');
+            document.getElementById('step-role').classList.remove('hidden');
+            document.querySelectorAll('.role-btn').forEach(btn => btn.classList.remove('active'));
+            selectedRole = null;
+            
+            // Clear form
+            document.getElementById('login-form').reset();
+            document.getElementById('login-error').classList.remove('show');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            
+            // Simple validation (in real app, this would be server-side)
+            if (username && password) {
+                // Store user info
+                const userData = {
+                    username: username,
+                    role: selectedRole,
+                    loginTime: new Date().toISOString()
+                };
+                localStorage.setItem('quizsmith_user', JSON.stringify(userData));
+                localStorage.setItem('QUIZSMITH_save_v1', JSON.stringify({ name: username, role: selectedRole }));
+                
+                // Show success and redirect
+                const successMsg = document.getElementById('login-success');
+                successMsg.textContent = `Welcome back, ${username}! Redirecting...`;
+                successMsg.classList.add('show');
+                
+                setTimeout(() => {
+                    // Redirect based on role
+                    if (selectedRole === 'teacher') {
+                        window.location.href = 'teacher.html';
+                    } else {
+                        window.location.href = 'dashboard.html';
+                    }
+                }, 1500);
+            } else {
+                document.getElementById('login-error').classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+/**
+ * HERO EFFECTS CSS - FULL SCREEN CANVAS
+ * Redesigned to fill 100vh/100vw as requested.
+ */
+
+/* ==========================================================
+   HERO SECTION - FULL SCREEN CANVAS
+   ========================================================== */
+
+.hero-pixel-scene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #000;
+    margin: 0;
+    padding: 0;
+    margin-left: calc(-50vw + 50%);
+}
+
+/* Full video background - COVER to fill the entire canvas */
+/* Full video background - COVER to fill entire screen */
+.hero-pixel-scene .hero-video-strict {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover !important;
+    /* Fills entire screen, may crop edges */
+    z-index: 0;
+    max-width: none !important;
+}
+
+/* Subtler dark gradient overlay to ensure text readability over bright video spots */
+.hero-pixel-scene .overlay-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: 1;
+}
+
+/* ==========================================================
+   HERO CONTENT - PERFECT CENTERING
+   ========================================================== */
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+/* HERO TEXT CONTAINER - Fully transparent as requested */
+.hero-text-box {
+    background: transparent;
+    border: none;
+    padding: 20px;
+    position: relative;
+    max-width: 1200px;
+    /* Increased for wider impact */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Robust vertical centering */
+    z-index: 5;
+    animation: fadeInUp 1s ease-out both;
+}
+
+/* "START YOUR" - SMALL white text on top */
+.hero-start-text {
+    font-family: 'Monocraft', monospace;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 8px;
+    margin-bottom: 8px;
+    opacity: 0.95;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    animation: float-text 3s ease-in-out infinite;
+}
+
+/* Main "Coding Adventure" container */
+.hero-adventure-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* Each line: Coding / Adventure */
+.hero-adventure-line {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Individual animated letters - BIGGER & BOLDER */
+.hero-adventure-line span {
+    display: inline-block;
+    font-family: 'Monocraft', monospace;
+    font-size: clamp(40px, 12vw, 120px);
+    /* Massive impactful size */
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -2px;
+
+    /* Yellow to Orange gradient like Codedex */
+    background: linear-gradient(180deg,
+            #FFD966 0%,
+            #F5A623 50%,
+            #D4790A 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Thick black outline using text-stroke + shadow */
+    -webkit-text-stroke: 4px #000;
+    paint-order: stroke fill;
+
+    /* Drop shadow for depth */
+    filter: drop-shadow(6px 6px 0 #000) drop-shadow(0 8px 0 rgba(0, 0, 0, 0.4));
+
+    /* Floating animation */
+    animation: float-letter 2s ease-in-out infinite;
+}
+
+/* Stagger animation delays for wave effect */
+.hero-adventure-line span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-adventure-line span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.hero-adventure-line span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.hero-adventure-line span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.hero-adventure-line span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
+.hero-adventure-line span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+
+.hero-adventure-line span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+
+.hero-adventure-line span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+
+.hero-adventure-line span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+
+/* Keyframes */
+@keyframes float-letter {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes float-text {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+/* ==========================================================
+   SUBTITLE & BUTTONS
+   ========================================================== */
+
+.hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 20px;
+    color: #fff;
+    text-align: center;
+    max-width: 600px;
+    margin-top: 32px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    line-height: 1.5;
+}
+
+.hero-buttons {
+    margin-top: 48px;
+    display: flex;
+    gap: 24px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================
+   NES-STYLE CTA BUTTONS
+   ========================================================== */
+
+.btn-nes-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 13px;
+    padding: 18px 36px;
+
+    /* Yellow gradient */
+    background: linear-gradient(180deg, #FFE066 0%, #F5A623 100%);
+    color: #000;
+
+    border: 4px solid #000;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 #000;
+    transition: transform 0.1s, box-shadow 0.1s;
+    text-transform: uppercase;
+}
+
+.btn-nes-primary:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 #000;
+}
+
+.btn-nes-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 11px;
+    padding: 16px 28px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 4px solid #fff;
+    cursor: pointer;
+    box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.2s;
+}
+
+.btn-nes-secondary:hover {
+    background: #fff;
+    color: #000;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 rgba(255, 255, 255, 0.5);
+}

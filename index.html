@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZSMITH - Cyber Code Academy</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/pixelarticons@1.8.1/css/pixelarticons.css" rel="stylesheet">
+    <!-- Using local Minecraft fonts in CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/cyber-engine.css?v=1.6">
+    <link rel="stylesheet" href="styles/hero-effects.css?v=1.9">
+    <link rel="stylesheet" href="styles/components.css?v=1.6">
+    <link rel="stylesheet" href="styles/pixel-icons.css?v=1.6">
+
+    <!-- True Pixel Fonts from Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Anime.js for Creative Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+
+    <!-- Ko-fi Support -->
+    <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+
+    <!-- Auth check removed - always show landing page first -->
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- Animated Cyber Background -->
+        <div class="cyber-bg">
+            <canvas id="matrix-canvas"></canvas>
+            <div class="crt-overlay"></div> <!-- Vignette/Scanlines -->
+            <div class="grid-overlay"></div>
+            <div class="floating-particles"></div>
+        </div>
+
+        <!-- Top Navigation (Simplified for Landing) -->
+        <nav id="topnav" class="topnav">
+            <div class="nav-left">
+                <a href="#" class="nav-brand" data-route="landing">
+                    <span class="brand-icon cyber-glow"><i data-lucide="zap"
+                            style="width:24px;height:24px;color:#ffc800;"></i></span>
+                    <span class="brand-text">QUIZSMITH</span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <button class="btn-cyber-primary" onclick="window.location.href='dashboard.html'">Login</button>
+            </div>
+        </nav>
+
+        <!-- Hero Section - Full Screen (Outside Main Layout) -->
+        <div class="hero-pixel-scene">
+            <!-- Background Video Loop -->
+            <video id="landing-video-bg" class="hero-video-strict" autoplay muted loop playsinline>
+                <source src="assets/_looped_video_1080p_202512201349.mp4" type="video/mp4">
+            </video>
+
+            <!-- Cube Image Behind Text -->
+            <div style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                width: 500px;
+                height: auto;
+                pointer-events: none;
+            ">
+                <img src="assets/pixel_art/hero-cube.png" alt="Code Cube" style="
+                    width: 100%;
+                    height: auto;
+                    opacity: 0.9;
+                    filter: drop-shadow(0 0 60px rgba(34, 211, 238, 0.5));
+                ">
+            </div>
+
+            <!-- Effects -->
+            <div class="crt-overlay"></div>
+            <div class="grid-overlay"></div>
+            <div class="overlay-gradient"
+                style="background: radial-gradient(circle, transparent 10%, rgba(0,0,0,0.8) 100%);"></div>
+
+            <!-- Hero Content - Simple Login/Signup -->
+            <div class="hero-content-wrapper" style="position: relative; z-index: 10;">
+                <div class="hero-text-box" style="text-align: center;">
+                    <h1 style="font-family: 'Press Start 2P'; font-size: 72px; color: #ffc800; margin-bottom: 24px; text-shadow: 0 0 40px rgba(255,200,0,0.6), 0 0 80px rgba(255,200,0,0.3);">QUIZSMITH</h1>
+                    <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 40px;">
+                        Learn to code. Level up your skills.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <button class="btn-nes-primary"
+                            onclick="window.location.href='login.html'">LOGIN</button>
+                        <button class="btn-nes-secondary" onclick="window.location.href='signup.html'">SIGN UP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Layout -->
+        <div id="main-layout" class="main-layout" style="display: none;">
+
+            <main id="main-content" class="main-content">
+
+                <!-- Features Section -->
+                <div class="features-section" style="background: var(--bg-deep); padding: 80px 24px;">
+                    <div style="max-width: 1100px; margin: 0 auto;">
+                        <div style="text-align: center; margin-bottom: 60px;">
+                            <h2
+                                style="font-family: 'Press Start 2P'; font-size: 18px; color: var(--text-bright); margin-bottom: 16px;">
+                                Why QUIZSMITH?</h2>
+                            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">A gamified
+                                learning experience that makes coding fun and addictive.</p>
+                        </div>
+
+                        <div class="features-grid"
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px;">
+                            <div class="feature-card cyber-card" style="padding: 32px; text-align: center;">
+                                <div style="font-size: 48px; margin-bottom: 16px;">🎮</div>
+                                <h3
+                                    style="font-family: 'Press Start 2P'; font-size: 12px; color: var(--text-bright); margin-bottom: 12px;">
+                                    Gamified Learning</h3>
+                                <p style="color: var(--text-secondary); font-size: 14px;">Earn XP, unlock badges, and
+                                    level up as you complete lessons.</p>
+                            </div>
+                            <div class="feature-card cyber-card" style="padding: 32px; text-align: center;">
+                                <div style="font-size: 48px; margin-bottom: 16px;">💻</div>
+                                <h3
+                                    style="font-family: 'Press Start 2P'; font-size: 12px; color: var(--text-bright); margin-bottom: 12px;">
+                                    Code in Browser</h3>
+                                <p style="color: var(--text-secondary); font-size: 14px;">No setup required. Write and
+                                    run code directly in your browser.</p>
+                            </div>
+                            <div class="feature-card cyber-card" style="padding: 32px; text-align: center;">
+                                <div style="font-size: 48px; margin-bottom: 16px;">🏆</div>
+                                <h3
+                                    style="font-family: 'Press Start 2P'; font-size: 12px; color: var(--text-bright); margin-bottom: 12px;">
+                                    Real Projects</h3>
+                                <p style="color: var(--text-secondary); font-size: 14px;">Build portfolio-worthy
+                                    projects like games, apps, and websites.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courses Preview Section -->
+                <div class="landing-courses-preview" style="background: var(--bg-panel); padding: 80px 24px;">
+                    <div class="landing-section-header" style="text-align: center; margin-bottom: 48px;">
+                        <h2
+                            style="font-family: 'Press Start 2P', monospace; font-size: 18px; color: var(--text-bright); margin-bottom: 16px;">
+                            Journey through the world of programming
+                        </h2>
+                        <p
+                            style="font-family: var(--font-body); color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
+                            Learn to code with fun, interactive courses handcrafted by industry experts.
+                        </p>
+                    </div>
+
+                    <div id="landing-grid" class="section-grid-3" style="max-width: 1100px; margin: 0 auto;">
+                        <!-- Courses injected by JS -->
+                    </div>
+
+                    <div style="text-align: center; margin-top: 48px;">
+                        <button class="btn-nes-primary btn-nes-cyan" onclick="navigateTo('signup')">
+                            Explore All Courses
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="cta-section"
+                    style="background: linear-gradient(135deg, #0a0e17 0%, #1a1a2e 100%); padding: 100px 24px; text-align: center;">
+                    <h2
+                        style="font-family: 'Press Start 2P'; font-size: 22px; color: var(--text-bright); margin-bottom: 16px;">
+                        Ready to Start?</h2>
+                    <p
+                        style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 32px auto; font-size: 16px;">
+                        Join thousands of learners and begin your coding journey today. It's free!
+                    </p>
+                    <button class="btn-nes-primary" onclick="navigateTo('signup')"
+                        style="font-size: 14px; padding: 16px 32px;">
+                        🚀 START LEARNING NOW
+                    </button>
+                </div>
+
+                <!-- Footer -->
+                <footer class="landing-footer"
+                    style="background: #0a0b10; padding: 60px 24px 30px; border-top: 1px solid var(--border-subtle);">
+                    <div style="max-width: 1100px; margin: 0 auto;">
+                        <div class="footer-grid"
+                            style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px;">
+                            <!-- Brand -->
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                                    <span style="font-size: 28px;">⛏️</span>
+                                    <span
+                                        style="font-family: 'Press Start 2P'; font-size: 14px; color: var(--text-bright);">QUIZSMITH</span>
+                                </div>
+                                <p
+                                    style="color: var(--text-muted); font-size: 13px; line-height: 1.6; max-width: 280px;">
+                                    The gamified way to learn coding. Earn XP, collect badges, and build real projects.
+                                </p>
+                            </div>
+
+                            <!-- Learn -->
+                            <div>
+                                <h4 style="color: var(--text-bright); font-size: 12px; margin-bottom: 16px;">LEARN</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><a href="#" onclick="navigateTo('courses')"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">All
+                                            Courses</a></li>
+                                    <li style="margin-bottom: 8px;"><a href="#" onclick="navigateTo('practice')"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">Practice</a>
+                                    </li>
+                                    <li style="margin-bottom: 8px;"><a href="#" onclick="navigateTo('builds')"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">Projects</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Community -->
+                            <div>
+                                <h4 style="color: var(--text-bright); font-size: 12px; margin-bottom: 16px;">COMMUNITY
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><a href="#" onclick="navigateTo('community')"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">Forum</a>
+                                    </li>
+                                    <li style="margin-bottom: 8px;"><a href="#"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">Discord</a>
+                                    </li>
+                                    <li style="margin-bottom: 8px;"><a href="#"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">Twitter/X</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Company -->
+                            <div>
+                                <h4 style="color: var(--text-bright); font-size: 12px; margin-bottom: 16px;">COMPANY
+                                </h4>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li style="margin-bottom: 8px;"><a href="#"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">About</a>
+                                    </li>
+                                    <li style="margin-bottom: 8px;"><a href="#"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">Blog</a>
+                                    </li>
+                                    <li style="margin-bottom: 8px;"><a href="#"
+                                            style="color: var(--text-muted); font-size: 13px; text-decoration: none;">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Bar -->
+                        <div
+                            style="border-top: 1px solid var(--border-subtle); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                            <p style="color: var(--text-muted); font-size: 12px; margin: 0;">© 2025 QUIZSMITH. Made with
+                                ❤️ for coders.</p>
+                            <div style="display: flex; gap: 24px;">
+                                <a href="#"
+                                    style="color: var(--text-muted); font-size: 12px; text-decoration: none;">Privacy</a>
+                                <a href="#"
+                                    style="color: var(--text-muted); font-size: 12px; text-decoration: none;">Terms</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- Ko-fi Button Bottom Right -->
+    <script>
+        kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'D1D81PRYTS');
+        kofiwidget2.draw();
+    </script>
+
+    <!-- Scripts -->
+    <script src="scripts/effects/matrix-rain.js"></script>
+    <script src="scripts/effects/tilt-effect.js"></script>
+    <script src="scripts/effects/rain-effect.js"></script>
+
+    <script src="scripts/effects/reveal-text.js"></script>
+    <script src="scripts/modules/ui-utils.js"></script>
+    <script src="scripts/modules/components.js"></script>
+    <script src="scripts/modules/cyber-buttons.js"></script>
+
+    <!-- Main App Logic -->
+    <script src="scripts/cyber-app.js?v=1.9"></script>
+
+
+    <!-- Initialize Lucide Icons on page load -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
