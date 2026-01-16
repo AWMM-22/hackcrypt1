@@ -4,7 +4,7 @@
 
 // Check if user is logged in as teacher
 (function checkTeacherAuth() {
-    const userData = localStorage.getItem('quizsmith_user');
+    const userData = localStorage.getItem('kwest_user');
     if (!userData) {
         // Not logged in, redirect to login
         window.location.href = 'login.html';

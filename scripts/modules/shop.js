@@ -30,7 +30,7 @@ const Shop = {
 
         this.container.innerHTML = `
             <header class="dashboard-header">
-                <div class="logo">QUIZSMITH</div>
+                <div class="logo">Kwest</div>
                 <nav class="top-nav">
                     <a href="#" data-route="dashboard">Dashboard</a>
                     <a href="#" data-route="courses-view">Courses</a>

@@ -1,4 +1,4 @@
-﻿// QUIZSMITH Core App
+﻿// Kwest Core App
 // Single clean controller
 
 const SUPABASE_URL = 'https://eskyhqcbbjsvobsdqkgh.supabase.co';
@@ -66,10 +66,10 @@ let supabase = null;
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('[QUIZSMITH] DOM loaded, initializing...');
+    console.log('[Kwest] DOM loaded, initializing...');
     bindEvents();
     initSupabase();
-    console.log('[QUIZSMITH] ✅ App initialized');
+    console.log('[Kwest] ✅ App initialized');
 });
 
 async function initSupabase() {
@@ -93,14 +93,14 @@ async function checkAuth() {
 }
 
 function bindEvents() {
-    console.log('[QUIZSMITH] Binding events...');
+    console.log('[Kwest] Binding events...');
 
     // Get Started button
     const getStartedBtn = document.getElementById('get-started-btn');
-    console.log('[QUIZSMITH] Get Started button:', getStartedBtn);
+    console.log('[Kwest] Get Started button:', getStartedBtn);
 
     getStartedBtn?.addEventListener('click', () => {
-        console.log('[QUIZSMITH] Get Started clicked!');
+        console.log('[Kwest] Get Started clicked!');
         // Skip login - go directly to main app
         showMainApp(null);
     });

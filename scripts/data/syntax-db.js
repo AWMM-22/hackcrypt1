@@ -1,4 +1,4 @@
-﻿// QUIZSMITH SYNTAX DATABASE [UNIVERSAL COMPILER SUPPORT]
+﻿// Kwest SYNTAX DATABASE [UNIVERSAL COMPILER SUPPORT]
 // Defines the "DNA" of every language to generate accurate lessons from Basic to Advanced.
 
 const SYNTAX_DB = {

@@ -1,7 +1,7 @@
 ﻿/**
  * Vanilla Tilt Effect
  * Adds a 3D parallax tilt effect to elements on hover.
- * Lightweight implementation for QUIZSMITH.
+ * Lightweight implementation for Kwest.
  */
 
 const TiltEffect = {

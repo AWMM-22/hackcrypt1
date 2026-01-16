@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZSMITH - Sign Up</title>
+    <title>Kwest - Sign Up</title>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://unpkg.com/pixelarticons@1.8.1/css/pixelarticons.css" rel="stylesheet">
@@ -337,7 +337,7 @@
 
         <div class="auth-card">
             <div class="auth-header">
-                <div class="auth-logo">QUIZSMITH</div>
+                <div class="auth-logo">Kwest</div>
                 <p class="auth-subtitle">Start your coding journey</p>
             </div>
 
@@ -518,9 +518,9 @@
             };
             
             // Store in localStorage (simulating database)
-            const users = JSON.parse(localStorage.getItem('quizsmith_users') || '[]');
+            const users = JSON.parse(localStorage.getItem('kwest_users') || '[]');
             users.push(userData);
-            localStorage.setItem('quizsmith_users', JSON.stringify(users));
+            localStorage.setItem('kwest_users', JSON.stringify(users));
             
             // Show success message
             const successMsg = document.getElementById('signup-success');
@@ -530,8 +530,8 @@
                 successMsg.classList.add('show');
                 
                 // Store login session
-                localStorage.setItem('quizsmith_user', JSON.stringify(userData));
-                localStorage.setItem('QUIZSMITH_save_v1', JSON.stringify({ name: username, role: selectedRole }));
+                localStorage.setItem('kwest_user', JSON.stringify(userData));
+                localStorage.setItem('Kwest_save_v1', JSON.stringify({ name: username, role: selectedRole }));
                 
                 setTimeout(() => {
                     window.location.href = 'dashboard.html';
@@ -542,8 +542,8 @@
                 successMsg.classList.add('show');
                 
                 // Store login session
-                localStorage.setItem('quizsmith_user', JSON.stringify(userData));
-                localStorage.setItem('QUIZSMITH_save_v1', JSON.stringify({ name: username, role: selectedRole }));
+                localStorage.setItem('kwest_user', JSON.stringify(userData));
+                localStorage.setItem('Kwest_save_v1', JSON.stringify({ name: username, role: selectedRole }));
                 
                 setTimeout(() => {
                     window.location.href = 'teacher.html';

@@ -1,5 +1,5 @@
 ﻿/**
- * QUIZSMITH Main Bootstrapper
+ * Kwest Main Bootstrapper
  * Orchestrates the application modules and handles global events.
  */
 

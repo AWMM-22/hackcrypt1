@@ -118,7 +118,7 @@ const Community = {
         this.container.innerHTML = `
             <header class="dashboard-header">
                 <div class="logo-area">
-                    <span class="brand-text">QUIZSMITH</span><span class="brand-patch">v2.0</span>
+                    <span class="brand-text">Kwest</span><span class="brand-patch">v2.0</span>
                 </div>
                 <nav class="top-nav">
                     <a href="#" onclick="window.App.router.navigate('dashboard')">Dashboard</a>

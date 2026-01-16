@@ -14,7 +14,7 @@ const Config = {
 
     // System Messages
     messages: {
-        startup: "QUIZSMITH OS Booting...",
+        startup: "Kwest OS Booting...",
         error_generic: "System Malfunction.",
         success_generic: "Course complete.",
         error_syntax: "Syntax Error."

@@ -1,4 +1,4 @@
-﻿// QUIZSMITH App Controller
+﻿// Kwest App Controller
 // Handles navigation, course rendering, and app state
 
 window.App = window.App || {};
@@ -69,7 +69,7 @@ const AppController = {
     ],
 
     init: function () {
-        console.log('[App] Initializing QUIZSMITH...');
+        console.log('[App] Initializing Kwest...');
 
         // Initialize modules
         if (window.App.Auth) window.App.Auth.init();
@@ -333,9 +333,9 @@ const AppController = {
 
     updateStats: function () {
         // Get user stats from localStorage
-        const xp = localStorage.getItem('QUIZSMITH_xp') || 0;
-        const streak = localStorage.getItem('QUIZSMITH_streak') || 0;
-        const lessons = localStorage.getItem('QUIZSMITH_lessons') || 0;
+        const xp = localStorage.getItem('Kwest_xp') || 0;
+        const streak = localStorage.getItem('Kwest_streak') || 0;
+        const lessons = localStorage.getItem('Kwest_lessons') || 0;
 
         document.getElementById('stat-xp').textContent = xp;
         document.getElementById('stat-streak').textContent = streak;

@@ -1,5 +1,5 @@
 ﻿/**
- * QUIZSMITH Cyber App Controller v1.2
+ * Kwest Cyber App Controller v1.2
  * Assets: Custom Pixel Art Cards
  */
 
@@ -55,7 +55,7 @@ const GameState = {
     },
 
     init() {
-        const saved = localStorage.getItem('QUIZSMITH_save_v1');
+        const saved = localStorage.getItem('Kwest_save_v1');
         if (saved) {
             this.data = { ...this.data, ...JSON.parse(saved) };
             console.log(' [SYSTEM] Save loaded. Welcome back, agent.');
@@ -67,7 +67,7 @@ const GameState = {
     },
 
     save() {
-        localStorage.setItem('QUIZSMITH_save_v1', JSON.stringify(this.data));
+        localStorage.setItem('Kwest_save_v1', JSON.stringify(this.data));
         this.updateUI();
     },
 
@@ -416,7 +416,7 @@ window.navigateTo = function (route, replaceState = false) {
 
     // External/Auth Routes
     if (route === 'landing' || route === 'logout') {
-        localStorage.removeItem('QUIZSMITH_save_v1');
+        localStorage.removeItem('Kwest_save_v1');
         window.location.href = '/index.html';
         return;
     }
@@ -633,7 +633,7 @@ function initNavigation() {
 
 // Helper for Landing Page Buttons
 function renderAuthButtons() {
-    const isLoggedIn = !!localStorage.getItem('QUIZSMITH_save_v1');
+    const isLoggedIn = !!localStorage.getItem('Kwest_save_v1');
     if (isLoggedIn) {
         return `
             <button class="btn-nes-primary" onclick="navigateTo('courses')">ACCESS PROTOCOLS</button>
@@ -647,7 +647,7 @@ function renderAuthButtons() {
     }
 }
 
-// QUIZSMITH LANDING PAGE (Logged Out View) - CODEDEX-INSPIRED ANIMATION
+// Kwest LANDING PAGE (Logged Out View) - CODEDEX-INSPIRED ANIMATION
 function renderLandingPage() {
     const mainContent = document.getElementById('main-content');
     const sidebar = document.querySelector('.sidebar');
@@ -705,7 +705,7 @@ function renderLandingPage() {
 
     // Show toast demo
     if (window.showToast) {
-        setTimeout(() => showToast('Welcome to QUIZSMITH! 🎮', 'info'), 1500);
+        setTimeout(() => showToast('Welcome to Kwest! 🎮', 'info'), 1500);
     }
 }
 
@@ -775,7 +775,7 @@ function renderSignupPage() {
                 
                 <!-- Header -->
                 <div style="text-align: center; margin-bottom: 28px;">
-                    <h1 style="font-family: var(--font-display); font-size: 24px; color: white; margin-bottom: 8px;">Join QUIZSMITH</h1>
+                    <h1 style="font-family: var(--font-display); font-size: 24px; color: white; margin-bottom: 8px;">Join Kwest</h1>
                     <p style="color: #8b949e; font-size: 15px;">Start your coding adventure today</p>
                 </div>
 
@@ -1009,7 +1009,7 @@ function renderLoginPage() {
                 </div>
 
                 <!-- Submit Button -->
-                <button onclick="localStorage.setItem('QUIZSMITH_save_v1', JSON.stringify(GameState.data)); navigateTo('home')" style="
+                <button onclick="localStorage.setItem('Kwest_save_v1', JSON.stringify(GameState.data)); navigateTo('home')" style="
                     width: 100%;
                     padding: 14px;
                     background: linear-gradient(180deg, #22d3ee 0%, #06b6d4 100%);
@@ -1495,7 +1495,7 @@ function renderProfilePage() {
                     <ul style="list-style: none; padding: 0; margin-top: 16px; font-size: 13px; color: var(--text-secondary);">
                         <li style="margin-bottom: 8px;">Completed <strong>Python Basics</strong> lesson.</li>
                         <li style="margin-bottom: 8px;">Earned <strong>First Code</strong> badge.</li>
-                        <li>Joined <strong>QUIZSMITH</strong>.</li>
+                        <li>Joined <strong>Kwest</strong>.</li>
                     </ul>
                  </div>
             </div>
@@ -1519,7 +1519,7 @@ function renderBuildsPage() {
 
             <div class="empty-state" style="padding: 80px 40px; background: var(--bg-card); border-radius: 24px; border: 1px dashed var(--border-subtle);">
                 <img src="${mascotArt}" alt="Build character" style="width: 150px; height: 150px; object-fit: contain; margin-bottom: 24px; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));">
-                <h2 style="margin-bottom: 12px;">Build right here on QUIZSMITH</h2>
+                <h2 style="margin-bottom: 12px;">Build right here on Kwest</h2>
                 <p style="color: var(--text-muted); max-width: 400px; margin: 0 auto 24px;">Share your code snippets, projects, and ideas with the community.</p>
                 <button class="btn-cyber-primary" style="padding: 14px 32px;">Create Your First Build</button>
             </div>
@@ -1574,7 +1574,7 @@ async function renderCommunityPage() {
             <!--Right Sidebar: News & Events-->
         <div class="community-sidebar">
             <div class="sidebar-widget" style="background: var(--bg-card); border-radius: 16px; padding: 20px; margin-bottom: 16px; border: 1px solid var(--border-subtle);">
-                <h4 style="font-family: 'Press Start 2P'; font-size: 10px; color: var(--text-muted); margin-bottom: 16px;">QUIZSMITH NEWS</h4>
+                <h4 style="font-family: 'Press Start 2P'; font-size: 10px; color: var(--text-muted); margin-bottom: 16px;">Kwest NEWS</h4>
                 <div style="color: var(--text-secondary); font-size: 14px;">
                     <p style="margin-bottom: 12px;">🎉 Intermediate Python course is now live!</p>
                     <p>🚀 New Challenge Packs coming next week.</p>
@@ -2309,11 +2309,11 @@ const CHALLENGE_QUESTIONS = {
         {
             id: 2,
             title: 'Variable Declaration',
-            description: 'Create a variable called message with value "QUIZSMITH" and log it.',
+            description: 'Create a variable called message with value "Kwest" and log it.',
             hint: 'Use let or const to declare variables.',
-            expectedOutput: 'QUIZSMITH',
+            expectedOutput: 'Kwest',
             starterCode: '// Declare and log the variable\n',
-            solution: 'let message = "QUIZSMITH";\nconsole.log(message);'
+            solution: 'let message = "Kwest";\nconsole.log(message);'
         },
         {
             id: 3,
@@ -2401,11 +2401,11 @@ const CHALLENGE_QUESTIONS = {
         {
             id: 6,
             title: 'HTML Link',
-            description: 'Log an anchor tag that links to "https://quizsmith.com" with text "Visit".',
+            description: 'Log an anchor tag that links to "https://kwest.com" with text "Visit".',
             hint: 'Use the <a href="url">text</a> format.',
-            expectedOutput: '<a href="https://quizsmith.com">Visit</a>',
+            expectedOutput: '<a href="https://kwest.com">Visit</a>',
             starterCode: '// Log the HTML anchor tag\n',
-            solution: 'console.log(\'<a href="https://quizsmith.com">Visit</a>\');'
+            solution: 'console.log(\'<a href="https://kwest.com">Visit</a>\');'
         }
     ],
     'algo-arena': [
@@ -2430,11 +2430,11 @@ const CHALLENGE_QUESTIONS = {
         {
             id: 3,
             title: 'Count Characters',
-            description: 'Count the number of characters in "QUIZSMITH" and log it.',
+            description: 'Count the number of characters in "Kwest" and log it.',
             hint: 'Use the .length property.',
             expectedOutput: '9',
-            starterCode: '// Count characters\nlet word = "QUIZSMITH";\n',
-            solution: 'let word = "QUIZSMITH";\nconsole.log(word.length);'
+            starterCode: '// Count characters\nlet word = "Kwest";\n',
+            solution: 'let word = "Kwest";\nconsole.log(word.length);'
         },
         {
             id: 4,
@@ -2470,10 +2470,10 @@ const CHALLENGE_QUESTIONS = {
 const ChallengeState = {
     currentPack: null,
     currentQuestion: 0,
-    completedQuestions: JSON.parse(localStorage.getItem('QUIZSMITH_challenges') || '{}'),
+    completedQuestions: JSON.parse(localStorage.getItem('Kwest_challenges') || '{}'),
     
     saveProgress() {
-        localStorage.setItem('QUIZSMITH_challenges', JSON.stringify(this.completedQuestions));
+        localStorage.setItem('Kwest_challenges', JSON.stringify(this.completedQuestions));
     },
     
     getPackProgress(packId) {
@@ -2977,7 +2977,7 @@ function renderBuildGallery() {
             </button>
             <h1 style="font-family: 'Press Start 2P'; font-size: 24px; color: white; margin-bottom: 16px;">Build Gallery</h1>
             <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 24px auto;">
-                Explore projects built by the QUIZSMITH community. Get inspired and share your own!
+                Explore projects built by the Kwest community. Get inspired and share your own!
             </p>
             <button class="btn-cyber-primary">+ Submit Your Build</button>
         </div>
@@ -4503,7 +4503,7 @@ function simulateCodeExecution(code, language = 'python') {
             output.push('+----+----------+');
             output.push('| ID | NAME     |');
             output.push('+----+----------+');
-            output.push('| 1  | QUIZSMITH |');
+            output.push('| 1  | Kwest |');
             output.push('+----+----------+');
             output.push('1 row in set (0.00 sec)');
         }
@@ -4586,7 +4586,7 @@ function simulateCodeExecution(code, language = 'python') {
             output.push('drwxr-xr-x  1 user  group  0 Dec 21 12:00 .');
             output.push('drwxr-xr-x  1 user  group  0 Dec 21 12:00 ..');
         } else if (code.startsWith('git ')) {
-            output.push('Initialized empty Git repository in /home/QUIZSMITH/project/.git/');
+            output.push('Initialized empty Git repository in /home/Kwest/project/.git/');
         }
     }
 

@@ -74,7 +74,7 @@ window.renderLessonWorkspace = function () {
                     <div style="color: #444;">Microsoft Windows [Version 10.0.19045.4291]</div>
                     <div style="color: #444;">(c) Microsoft Corporation. All rights reserved.</div>
                     <br>
-                    <div style="color: var(--neon-cyan);">root@QUIZSMITH:~/environment $ python main.py</div>
+                    <div style="color: var(--neon-cyan);">root@Kwest:~/environment $ python main.py</div>
                 </div>
             </div>
             

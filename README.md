@@ -1,8 +1,8 @@
-﻿# 💎 QUIZSMITH: The AI-Powered Logic Forge
+﻿# 💎 Kwest: The AI-Powered Logic Forge
 
 > **"Beyond Syntax. Deep Logic. Professional Mastery."**
 
-QUIZSMITH is a next-generation, **completely free**, gamified coding platform designed to bridge the gap between "Hello World" and professional software engineering. Unlike traditional platforms that focus on rote syntax memorization, QUIZSMITH emphasizes **Architectural Logic, System Design, and Real-World Problem Solving** from Day 1.
+Kwest is a next-generation, **completely free**, gamified coding platform designed to bridge the gap between "Hello World" and professional software engineering. Unlike traditional platforms that focus on rote syntax memorization, Kwest emphasizes **Architectural Logic, System Design, and Real-World Problem Solving** from Day 1.
 
 ## 🚀 Mission: The Logic Standard
 We are building the ultimate diverse coding ecosystem. Our philosophy:
@@ -61,7 +61,7 @@ We are building the ultimate diverse coding ecosystem. Our philosophy:
 
 ## 💸 Pricing
 
-### 🆓 QUIZSMITH is 100% FREE
+### 🆓 Kwest is 100% FREE
 We believe coding education should be accessible to everyone. All courses, exercises, and features are completely free with no premium tiers or paywalls.
 
 ## 🏁 Getting Started
@@ -71,8 +71,8 @@ We believe coding education should be accessible to everyone. All courses, exerc
 3. Click "Start Coding" and begin your journey!
 
 ```bash
-git clone https://github.com/your-username/QUIZSMITH.git
-cd QUIZSMITH
+git clone https://github.com/your-username/Kwest.git
+cd Kwest
 # Open index.html in your browser
 ```
 
@@ -90,6 +90,6 @@ MIT License - Free to use, modify, and distribute.
 
 ---
 
-*Built with ❤️ by the QUIZSMITH Team | Deploying the Future of Code Education*
+*Built with ❤️ by the Kwest Team | Deploying the Future of Code Education*
 
 *Version 1.0.0*

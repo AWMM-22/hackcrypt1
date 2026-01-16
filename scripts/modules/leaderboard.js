@@ -30,7 +30,7 @@ const Leaderboard = {
 
         this.container.innerHTML = `
             <header class="dashboard-header">
-                <div class="logo">QUIZSMITH</div>
+                <div class="logo">Kwest</div>
                 <nav class="top-nav">
                     <a href="#" data-route="dashboard">Dashboard</a>
                     <a href="#" data-route="courses-view">Courses</a>
@@ -43,7 +43,7 @@ const Leaderboard = {
             <div class="leaderboard-container">
                 <div class="leaderboard-hero">
                     <h1 class="cyber-glitch" data-text="NEURAL RANKINGS">NEURAL RANKINGS</h1>
-                    <p class="subtitle">The brightest minds in the QUIZSMITH network.</p>
+                    <p class="subtitle">The brightest minds in the Kwest network.</p>
                     
                     <div class="view-tabs">
                         <button class="${this.state.view === 'weekly' ? 'active' : ''}" data-view="weekly">This Week</button>

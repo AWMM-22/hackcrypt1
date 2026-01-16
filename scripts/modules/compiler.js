@@ -1,11 +1,11 @@
-﻿// QUIZSMITH Compiler Module
+﻿// Kwest Compiler Module
 // Powered by Piston API (emkc.org)
 window.App = window.App || {};
 
 const Compiler = {
     apiEndpoint: 'https://emkc.org/api/v2/piston/execute',
 
-    // Language Mapping (QUIZSMITH ID -> Piston ID)
+    // Language Mapping (Kwest ID -> Piston ID)
     languages: {
         'python': { runtime: 'python', version: '3.10.0' },
         'python-hello': { runtime: 'python', version: '3.10.0' }, // Alias

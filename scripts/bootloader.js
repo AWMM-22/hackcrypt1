@@ -1,5 +1,5 @@
 ﻿/**
- * QUIZSMITH BOOTLOADER (v1.1 - Emergency Repair)
+ * Kwest BOOTLOADER (v1.1 - Emergency Repair)
  * 
  * Purpose: 
  * 1. Independent Controller for Navigation.

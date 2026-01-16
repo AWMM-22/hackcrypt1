@@ -33,7 +33,7 @@ class SPAHandler(http.server.SimpleHTTPRequestHandler):
 os.chdir(DIRECTORY)
 
 with socketserver.TCPServer(("", PORT), SPAHandler) as httpd:
-    print(f"✅ QUIZSMITH Server running at http://localhost:{PORT}")
+    print(f"✅ Kwest Server running at http://localhost:{PORT}")
     print(f"👉 Press Ctrl+C to stop")
     print(f"🚀 Supporting routes like /courses/python")
     httpd.serve_forever()

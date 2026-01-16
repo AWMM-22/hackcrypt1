@@ -159,7 +159,7 @@ const Auth = {
                 <div class="auth-card animate-fade-in-up">
                     <div class="auth-header">
                         <div class="auth-logo">⚡</div>
-                        <h1 class="auth-title text-gradient">Welcome to QUIZSMITH</h1>
+                        <h1 class="auth-title text-gradient">Welcome to Kwest</h1>
                         <p class="auth-subtitle">Sign in to track your progress and join the community</p>
                     </div>
                     

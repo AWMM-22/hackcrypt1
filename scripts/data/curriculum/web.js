@@ -67,9 +67,9 @@ The **<a>** tag creates hyperlinks.
 
 - **href** = destination URL
 - Text between tags = clickable text`,
-                            instructions: "Log an anchor tag linking to **https://quizsmith.com** with text **Visit**",
+                            instructions: "Log an anchor tag linking to **https://kwest.com** with text **Visit**",
                             starterCode: "// Log a link tag\n\n",
-                            expectedOutput: '<a href="https://quizsmith.com">Visit</a>'
+                            expectedOutput: '<a href="https://kwest.com">Visit</a>'
                         }
                     }
                 ] 
@@ -329,9 +329,9 @@ const age = 25;
 
 - **let**: Can be changed
 - **const**: Cannot be changed`,
-                            instructions: "Create variable **message** = 'QUIZSMITH' and log it",
+                            instructions: "Create variable **message** = 'Kwest' and log it",
                             starterCode: "// Declare and log\n\n",
-                            expectedOutput: "QUIZSMITH"
+                            expectedOutput: "Kwest"
                         }
                     },
                     { 

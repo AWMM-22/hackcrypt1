@@ -16,7 +16,7 @@ const Nav = {
             <header class="nav-global">
                 <a href="#" class="nav-brand" data-route="dashboard">
                     <i data-lucide="zap" style="width:24px;height:24px;color:#ffc800;"></i>
-                    <span class="text-gradient">QUIZSMITH</span>
+                    <span class="text-gradient">Kwest</span>
                 </a>
                 <nav class="nav-links">
                     ${this.routes.map(r => `

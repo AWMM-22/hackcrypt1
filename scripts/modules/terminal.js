@@ -22,14 +22,14 @@
             const termHTML = `
                 <div id="global-terminal" class="terminal-overlay hidden">
                     <div class="terminal-header">
-                        <span class="terminal-title">QUIZSMITH_OS [v1.0.4]</span>
+                        <span class="terminal-title">Kwest_OS [v1.0.4]</span>
                         <span class="terminal-status">ONLINE</span>
                     </div>
                     <div class="terminal-output" id="term-output">
                         <div class="line">Type 'help' for available commands.</div>
                     </div>
                     <div class="terminal-input-line">
-                        <span class="prompt">root@QUIZSMITH:~$</span>
+                        <span class="prompt">root@Kwest:~$</span>
                         <input type="text" id="term-input" autocomplete="off" spellcheck="false">
                     </div>
                 </div>
@@ -78,7 +78,7 @@
         const cmd = cmdRaw.trim().toLowerCase();
         if (!cmd) return;
 
-        this.print(`<span class="prompt">root@QUIZSMITH:~$</span> ${cmdRaw}`);
+        this.print(`<span class="prompt">root@Kwest:~$</span> ${cmdRaw}`);
 
         const parts = cmd.split(' ');
         const trigger = parts[0];

@@ -33,7 +33,7 @@ const Academy = {
                 {
                     instruction: "Text in Python must be wrapped in quotes. Single ('...') or double (\"...\") quotes tell Python: 'This is text, not a command.'",
                     hint: "Without quotes, Python thinks your text is a variable name—and panics because it doesn't exist!",
-                    example: "print('QUIZSMITH Academy')",
+                    example: "print('Kwest Academy')",
                     checkpoint: false
                 },
                 {

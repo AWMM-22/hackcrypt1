@@ -1,10 +1,10 @@
-﻿// QUIZSMITH App - Codedex Clone
+﻿// Kwest App - Codedex Clone
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('[QUIZSMITH] Initializing...');
+    console.log('[Kwest] Initializing...');
 
     // Bind start button
     document.getElementById('start-btn')?.addEventListener('click', () => {
-        console.log('[QUIZSMITH] Start clicked');
+        console.log('[Kwest] Start clicked');
         document.getElementById('intro-screen').classList.remove('active');
         document.getElementById('main-screen').classList.add('active');
     });
@@ -18,5 +18,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    console.log('[QUIZSMITH] ✅ Ready');
+    console.log('[Kwest] ✅ Ready');
 });

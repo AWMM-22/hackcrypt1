@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QUIZSMITH - Login</title>
+    <title>Kwest - Login</title>
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://unpkg.com/pixelarticons@1.8.1/css/pixelarticons.css" rel="stylesheet">
@@ -307,7 +307,7 @@
 
         <div class="auth-card">
             <div class="auth-header">
-                <div class="auth-logo">QUIZSMITH</div>
+                <div class="auth-logo">Kwest</div>
                 <p class="auth-subtitle">Level up your coding skills</p>
             </div>
 
@@ -421,8 +421,8 @@
                     role: selectedRole,
                     loginTime: new Date().toISOString()
                 };
-                localStorage.setItem('quizsmith_user', JSON.stringify(userData));
-                localStorage.setItem('QUIZSMITH_save_v1', JSON.stringify({ name: username, role: selectedRole }));
+                localStorage.setItem('kwest_user', JSON.stringify(userData));
+                localStorage.setItem('Kwest_save_v1', JSON.stringify({ name: username, role: selectedRole }));
                 
                 // Show success and redirect
                 const successMsg = document.getElementById('login-success');
